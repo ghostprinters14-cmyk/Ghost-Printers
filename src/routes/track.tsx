@@ -26,9 +26,9 @@ function Track() {
   const navigate = useNavigate();
   const go = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user) return navigate({ to: "/auth", search: { redirect: "/track" } });
+    if (!user) { navigate({ to: "/auth", search: { redirect: "/track" } }); return; }
     const { data } = await supabase.from("orders").select("id").eq("order_number", num.trim().toUpperCase()).maybeSingle();
-    if (!data) return toast.error("No order with that number on your account");
+    if (!data) { toast.error("No order with that number on your account"); return; }
     navigate({ to: "/orders/$id", params: { id: data.id } });
   };
   return (

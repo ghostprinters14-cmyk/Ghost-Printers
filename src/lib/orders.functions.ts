@@ -21,7 +21,7 @@ const orderInput = z.object({
   pincode: z.string().max(12).optional(),
 });
 
-async function priceOrder(supabase: any, d: { productId: string; size: string; paper: string; quantity: number; couponCode?: string; delivery: DeliveryId }) {
+async function priceOrder(supabase: any, d: { productId: string; size: string; paper: string; quantity: number; couponCode?: string | undefined; delivery: DeliveryId }) {
   const { data: p, error } = await supabase.from("products").select("*").eq("id", d.productId).eq("active", true).single();
   if (error || !p) throw new Error("Product not available");
   const size = (p.sizes as Option[]).find((s) => s.label === d.size);

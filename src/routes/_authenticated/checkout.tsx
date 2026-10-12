@@ -73,11 +73,11 @@ function Checkout() {
       </section>
     );
 
-  const place = async () => {
-    if (!f.name || !f.phone) return toast.error("Add your name and phone number");
-    if (delivery !== "pickup" && (!f.address || !f.city || !f.pincode)) return toast.error("Add your delivery address");
-    if (!file) return toast.error("Upload your design file (PDF, PNG, JPG, AI)");
-    if (file.size > 50 * 1024 * 1024) return toast.error("File must be under 50 MB");
+  const place = async (): Promise<void> => {
+    if (!f.name || !f.phone) { toast.error("Add your name and phone number"); return; }
+    if (delivery !== "pickup" && (!f.address || !f.city || !f.pincode)) { toast.error("Add your delivery address"); return; }
+    if (!file) { toast.error("Upload your design file (PDF, PNG, JPG, AI)"); return; }
+    if (file.size > 50 * 1024 * 1024) { toast.error("File must be under 50 MB"); return; }
     setBusy(true);
     try {
       const path = `${user.id}/${Date.now()}-${file.name.replace(/[^\w.\-]/g, "_")}`;
