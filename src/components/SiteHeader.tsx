@@ -18,7 +18,7 @@ export function Logo() {
 }
 
 export function SiteHeader() {
-  const { user, isAdmin } = useAuth();
+  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const qc = useQueryClient();
@@ -36,7 +36,6 @@ export function SiteHeader() {
       <Link to="/offers" className="hover:text-primary" onClick={() => setOpen(false)}>Offers</Link>
       <Link to="/track" className="hover:text-primary" onClick={() => setOpen(false)}>Track order</Link>
       {user && <Link to="/account" className="hover:text-primary" onClick={() => setOpen(false)}>My orders</Link>}
-      {isAdmin && <Link to="/admin" className="font-semibold text-primary" onClick={() => setOpen(false)}>Admin</Link>}
     </>
   );
 

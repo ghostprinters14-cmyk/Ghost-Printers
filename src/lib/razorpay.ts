@@ -19,9 +19,9 @@ export async function openRazorpay(opts: {
   keyId: string;
   orderId: string;
   amount: number;
-  name?: string;
-  phone?: string;
-  email?: string;
+  name?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
   description: string;
 }): Promise<{ razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string }> {
   const ok = await loadScript();

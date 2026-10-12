@@ -48,8 +48,8 @@ function ProductPage() {
   const { data } = useSuspenseQuery(productsQuery);
   const p = data.find((x) => x.slug === slug)!;
   const navigate = useNavigate();
-  const [size, setSize] = useState(p.sizes[0]);
-  const [paper, setPaper] = useState(p.papers[0]);
+  const [size, setSize] = useState(p.sizes[0] ?? { label: "Standard", m: 1 });
+  const [paper, setPaper] = useState(p.papers[0] ?? { label: "Standard", m: 1 });
   const [qty, setQty] = useState<number>(p.quantities[0] ?? 1);
   const Icon = ICONS[p.slug];
   const total = calcSubtotal(Number(p.base_price), size.m, paper.m, qty);
