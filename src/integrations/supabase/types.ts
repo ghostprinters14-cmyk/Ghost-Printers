@@ -14,16 +14,260 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      coupons: {
+        Row: {
+          active: boolean
+          code: string
+          created_at: string
+          description: string | null
+          min_order: number
+          percent: number
+        }
+        Insert: {
+          active?: boolean
+          code: string
+          created_at?: string
+          description?: string | null
+          min_order?: number
+          percent: number
+        }
+        Update: {
+          active?: boolean
+          code?: string
+          created_at?: string
+          description?: string | null
+          min_order?: number
+          percent?: number
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          address: string | null
+          city: string | null
+          coupon_code: string | null
+          courier: string | null
+          created_at: string
+          customer_name: string | null
+          delivery_fee: number
+          delivery_method: string
+          discount: number
+          file_name: string | null
+          file_path: string | null
+          id: string
+          notes: string | null
+          order_number: string
+          paper: string | null
+          payment_method: string
+          payment_status: string
+          phone: string | null
+          pincode: string | null
+          product_id: string | null
+          product_name: string
+          quantity: number
+          razorpay_order_id: string | null
+          razorpay_payment_id: string | null
+          size: string | null
+          status: string
+          subtotal: number
+          total: number
+          tracking_number: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          coupon_code?: string | null
+          courier?: string | null
+          created_at?: string
+          customer_name?: string | null
+          delivery_fee?: number
+          delivery_method: string
+          discount?: number
+          file_name?: string | null
+          file_path?: string | null
+          id?: string
+          notes?: string | null
+          order_number?: string
+          paper?: string | null
+          payment_method?: string
+          payment_status?: string
+          phone?: string | null
+          pincode?: string | null
+          product_id?: string | null
+          product_name: string
+          quantity: number
+          razorpay_order_id?: string | null
+          razorpay_payment_id?: string | null
+          size?: string | null
+          status?: string
+          subtotal: number
+          total: number
+          tracking_number?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          coupon_code?: string | null
+          courier?: string | null
+          created_at?: string
+          customer_name?: string | null
+          delivery_fee?: number
+          delivery_method?: string
+          discount?: number
+          file_name?: string | null
+          file_path?: string | null
+          id?: string
+          notes?: string | null
+          order_number?: string
+          paper?: string | null
+          payment_method?: string
+          payment_status?: string
+          phone?: string | null
+          pincode?: string | null
+          product_id?: string | null
+          product_name?: string
+          quantity?: number
+          razorpay_order_id?: string | null
+          razorpay_payment_id?: string | null
+          size?: string | null
+          status?: string
+          subtotal?: number
+          total?: number
+          tracking_number?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          active: boolean
+          base_price: number
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          papers: Json
+          quantities: Json
+          sizes: Json
+          slug: string
+          sort_order: number
+          tagline: string | null
+          turnaround: string | null
+        }
+        Insert: {
+          active?: boolean
+          base_price?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          papers?: Json
+          quantities?: Json
+          sizes?: Json
+          slug: string
+          sort_order?: number
+          tagline?: string | null
+          turnaround?: string | null
+        }
+        Update: {
+          active?: boolean
+          base_price?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          papers?: Json
+          quantities?: Json
+          sizes?: Json
+          slug?: string
+          sort_order?: number
+          tagline?: string | null
+          turnaround?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          address: string | null
+          city: string | null
+          company: string | null
+          created_at: string
+          full_name: string | null
+          gst_number: string | null
+          id: string
+          phone: string | null
+          pincode: string | null
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          company?: string | null
+          created_at?: string
+          full_name?: string | null
+          gst_number?: string | null
+          id: string
+          phone?: string | null
+          pincode?: string | null
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          company?: string | null
+          created_at?: string
+          full_name?: string | null
+          gst_number?: string | null
+          id?: string
+          phone?: string | null
+          pincode?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "customer"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +394,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "customer"],
+    },
   },
 } as const
