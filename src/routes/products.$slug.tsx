@@ -71,6 +71,7 @@ function ProductPage() {
             <p className="text-muted-foreground">{p.tagline}</p>
           </div>
         </div>
+        {p.image_url && <img src={p.image_url} alt={p.name} className="mt-6 aspect-[16/9] w-full max-w-2xl rounded-2xl border-2 border-ink object-cover" />}
         <p className="mt-6 max-w-2xl">{p.description}</p>
 
         <div className="mt-10 space-y-8">

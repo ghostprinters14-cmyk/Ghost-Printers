@@ -1,0 +1,1 @@
+create policy "admin read product images" on storage.objects for select to authenticated using (bucket_id = 'product-images' and public.has_role(auth.uid(),'admin'));
