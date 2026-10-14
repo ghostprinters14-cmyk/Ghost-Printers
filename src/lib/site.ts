@@ -1,8 +1,8 @@
 export const SITE = {
   name: "GhostPrinters",
-  whatsapp: "919999999999", // replace with real number (country code, no +)
-  phoneDisplay: "+91 99999 99999",
-  email: "hello@ghostprinters.in",
+  whatsapp: "919390820423",
+  phoneDisplay: "+91 93908 20423",
+  email: "info.ghostprinters@gmail.com",
   city: "India",
 };
 

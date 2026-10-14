@@ -5,13 +5,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
+import logo from "@/assets/logo.png.asset.json";
 
 export function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2 font-display text-xl font-extrabold tracking-tight">
-      <span className="grid h-8 w-8 place-items-center rounded-md bg-ink text-ink-foreground">
-        <span className="h-3 w-3 rounded-full bg-primary" />
-      </span>
+      <img src={logo.url} alt="GhostPrinters logo" width={44} height={44} className="h-11 w-11 object-contain" />
       Ghost<span className="text-primary">Printers</span>
     </Link>
   );
