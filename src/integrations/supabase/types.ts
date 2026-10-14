@@ -155,9 +155,11 @@ export type Database = {
         Row: {
           active: boolean
           base_price: number
+          category: string
           created_at: string
           description: string | null
           id: string
+          image_url: string | null
           name: string
           papers: Json
           quantities: Json
@@ -170,9 +172,11 @@ export type Database = {
         Insert: {
           active?: boolean
           base_price?: number
+          category?: string
           created_at?: string
           description?: string | null
           id?: string
+          image_url?: string | null
           name: string
           papers?: Json
           quantities?: Json
@@ -185,9 +189,11 @@ export type Database = {
         Update: {
           active?: boolean
           base_price?: number
+          category?: string
           created_at?: string
           description?: string | null
           id?: string
+          image_url?: string | null
           name?: string
           papers?: Json
           quantities?: Json
