@@ -26,10 +26,15 @@ export function ProductCard({ p, i }: { p: Product; i: number }) {
       params={{ slug: p.slug }}
       className="group flex flex-col rounded-2xl border-2 border-ink bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-print"
     >
-      <div className={`grid h-12 w-12 place-items-center rounded-xl ${TINTS[i % TINTS.length]}`}>
-        <Icon className="h-6 w-6" />
-      </div>
-      <h3 className="mt-4 text-xl font-bold">{p.name}</h3>
+      {p.image_url ? (
+        <img src={p.image_url} alt={p.name} loading="lazy" className="aspect-[4/3] w-full rounded-xl border object-cover" />
+      ) : (
+        <div className={`grid h-12 w-12 place-items-center rounded-xl ${TINTS[i % TINTS.length]}`}>
+          <Icon className="h-6 w-6" />
+        </div>
+      )}
+      <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{p.category}</p>
+      <h3 className="mt-1 text-xl font-bold">{p.name}</h3>
       <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
       <div className="mt-auto flex items-end justify-between pt-6">
         <p className="text-sm">

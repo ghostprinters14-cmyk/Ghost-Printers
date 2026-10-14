@@ -15,6 +15,8 @@ export type Product = {
   papers: Option[];
   quantities: number[];
   turnaround: string | null;
+  image_url: string | null;
+  category: string;
 };
 
 function publicClient() {
@@ -35,7 +37,7 @@ function publicClient() {
 export const listProducts = createServerFn({ method: "GET" }).handler(async () => {
   const { data } = await publicClient()
     .from("products")
-    .select("id, slug, name, tagline, description, base_price, sizes, papers, quantities, turnaround")
+    .select("id, slug, name, tagline, description, base_price, sizes, papers, quantities, turnaround, image_url, category")
     .eq("active", true)
     .order("sort_order");
   return (data ?? []) as unknown as Product[];
