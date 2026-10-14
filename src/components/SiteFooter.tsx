@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 import { SITE, whatsappLink } from "@/lib/site";
+import logo from "@/assets/logo.png.asset.json";
 
 export function SiteFooter() {
   return (
@@ -8,6 +9,7 @@ export function SiteFooter() {
       <div className="h-1 cmyk-bar" />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
+          <img src={logo.url} alt="GhostPrinters logo" width={96} height={96} loading="lazy" className="mb-3 h-24 w-24 rounded-xl bg-card object-contain p-1" />
           <p className="font-display text-2xl font-extrabold">Ghost<span className="text-primary">Printers</span></p>
           <p className="mt-3 max-w-sm text-sm opacity-70">Online printing for businesses, creators and celebrations. Upload, pay, and track — we handle the ink.</p>
         </div>
@@ -23,6 +25,7 @@ export function SiteFooter() {
           <p className="mb-3 font-semibold">Support</p>
           <ul className="space-y-2 opacity-80">
             <li><a href={whatsappLink()} target="_blank" rel="noreferrer">WhatsApp {SITE.phoneDisplay}</a></li>
+            <li><a href={`tel:+${SITE.whatsapp}`}>Call {SITE.phoneDisplay}</a></li>
             <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
           </ul>
         </div>
