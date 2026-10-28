@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 import { SITE, whatsappLink } from "@/lib/site";
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/logo.png";
 
 export function SiteFooter() {
   return (
