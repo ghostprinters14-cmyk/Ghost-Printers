@@ -44,6 +44,9 @@ export function ProductCard({ p, i }: { p: Product; i: number }) {
         </p>
         <ArrowUpRight className="h-5 w-5 transition-transform group-hover:rotate-45 group-hover:text-primary" />
       </div>
+      <span className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity group-hover:opacity-90">
+        Order Now
+      </span>
     </Link>
   );
 }
