@@ -10,7 +10,7 @@ import logo from "@/assets/logo.png";
 export function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2 font-display text-xl font-extrabold tracking-tight">
-      <img src={logo.url} alt="GhostPrinters logo" width={44} height={44} className="h-11 w-11 object-contain" />
+      <img src={logo} alt="GhostPrinters logo" width={44} height={44} className="h-9 w-9 object-contain md:h-11 md:w-11" />
       Ghost<span className="text-primary">Printers</span>
     </Link>
   );

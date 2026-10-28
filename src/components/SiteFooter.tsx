@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="h-1 cmyk-bar" />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
-          <img src={logo.url} alt="GhostPrinters logo" width={96} height={96} loading="lazy" className="mb-3 h-24 w-24 rounded-xl bg-card object-contain p-1" />
+          <img src={logo} alt="GhostPrinters logo" width={96} height={96} loading="lazy" className="mb-3 h-20 w-20 rounded-xl bg-card object-contain p-1 md:h-24 md:w-24" />
           <p className="font-display text-2xl font-extrabold">Ghost<span className="text-primary">Printers</span></p>
           <p className="mt-3 max-w-sm text-sm opacity-70">Online printing for businesses, creators and celebrations. Upload, pay, and track — we handle the ink.</p>
         </div>
